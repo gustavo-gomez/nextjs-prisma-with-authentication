@@ -1,9 +1,9 @@
 'use server';
 
 import {FormState} from "@/app/actions/auth/definitions";
-import {SignUpForm} from "@/app/(login)/signup/page";
 import prisma from "@/lib/prisma";
-
+import {SignUpForm} from "@/app/(login)/signup/signUpHelper";
+import {createSession, deleteSession} from "@/lib/auth/session";
 
 export async function signUp(state: FormState, values: SignUpForm): Promise<FormState> {
 
@@ -28,7 +28,14 @@ export async function signUp(state: FormState, values: SignUpForm): Promise<Form
     }
   })
   if (!user) return {message: 'Error al crear el usuario'}
+
+  await createSession(user.id.toString())
+
   return {
     message: 'Usuario creado con éxito'
   }
+}
+
+export async function logout() {
+  deleteSession();
 }

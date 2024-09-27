@@ -1,5 +1,6 @@
 import type {Metadata} from "next";
 import "./globals.css";
+import {NextUIProvider} from "@nextui-org/react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="es">
     <body>
-     {children}
+    <NextUIProvider>
+      {children}
+    </NextUIProvider>
     </body>
     </html>
   );
