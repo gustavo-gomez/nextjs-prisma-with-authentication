@@ -45,9 +45,7 @@ export default function SignUp() {
               type='password'
             />
             <Button type='submit'>Registrarse</Button>
-            {
-              <span className='text-red-600'>{state?.message}</span>
-            }
+            <span className='text-red-600'>{state?.message}</span>
           </Card>
         </div>
       </form>

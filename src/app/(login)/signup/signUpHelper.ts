@@ -22,7 +22,7 @@ export const signUpSchema = z.object({
   password: z.string()
     .min(1, 'Ingrese una clave')
     .min(8, 'La clave debe tener al menos 8 caracteres')
-    .min(20, 'La clave debe tener menos de 20 caracteres')
+    .max(20, 'La clave debe tener menos de 20 caracteres')
     .regex(/[a-zA-Z]/, 'Contain at least one letter.')
     .regex(/[0-9]/, 'Contain at least one number.')
     .regex(/[^a-zA-Z0-9]/, 'Contain at least one special character.').trim(),
