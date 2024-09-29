@@ -1,9 +1,10 @@
 import {getUser} from "@/lib/auth/session";
+import {ReactNode} from "react";
 
 export default async function DashBoardLayout({
                                                 children,
                                               }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   await getUser();
 
